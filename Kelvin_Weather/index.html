@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#121a1d">
+  <meta name="description"
+        content="Kelvin Weather Studio - Live weather and 7-day forecasts.">
+  <title>Kelvin — Weather Studio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="container">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="branding">
+        <h1>KELVIN<span>.</span></h1>
+        <p>
+          Explore current conditions and the week ahead,
+          anywhere in the world.
+        </p>
+      </div>
+
+      <form id="searchForm" class="search-box">
+        <input
+          type="search"
+          id="cityInput"
+          placeholder="Search city or place..."
+          aria-label="Search city"
+          autocomplete="off"
+          required
+        >
+        <button type="submit" id="searchButton">
+          Search ↗
+        </button>
+      </form>
+    </header>
+
+    <!-- LOCATION -->
+    <section class="location-bar">
+      <div class="location-info">
+        <span class="section-label">CURRENT LOCATION</span>
+        <h2 id="locationName">Loading Lahore...</h2>
+      </div>
+
+      <div class="unit-switcher"
+           aria-label="Temperature unit">
+        <button type="button" class="unit"
+                data-unit="K">K</button>
+        <button type="button" class="unit active"
+                data-unit="C">°C</button>
+        <button type="button" class="unit"
+                data-unit="F">°F</button>
+      </div>
+    </section>
+
+    <p id="statusMessage"
+       class="status"
+       role="status"></p>
+
+    <!-- WEATHER CARDS -->
+    <section class="weather-grid">
+
+      <!-- CURRENT WEATHER -->
+      <article class="card current-weather">
+        <div class="card-heading">
+          <span>RIGHT NOW</span>
+          <span id="updatedTime">UPDATED --:--</span>
+        </div>
+
+        <div class="temperature-area">
+          <h2 id="temperature">--</h2>
+          <div id="weatherIcon"
+               class="weather-icon"
+               aria-hidden="true">☀</div>
+        </div>
+
+        <h3 id="weatherDescription">
+          Loading weather...
+        </h3>
+
+        <p class="feels-like">
+          Feels like <span id="feelsLike">--</span>
+        </p>
+
+        <div class="temperature-range">
+          <span>↑ High <b id="highTemp">--</b></span>
+          <span>↓ Low <b id="lowTemp">--</b></span>
+        </div>
+      </article>
+
+      <!-- WEATHER DETAILS -->
+      <article class="card details-card">
+        <div class="card-heading">
+          <span>THE DETAILS</span>
+          <span>↗</span>
+        </div>
+
+        <div class="details-grid">
+          <div class="detail">
+            <span class="detail-icon">◉</span>
+            <small>HUMIDITY</small>
+            <strong id="humidity">--%</strong>
+          </div>
+
+          <div class="detail">
+            <span class="detail-icon">↗</span>
+            <small>WIND SPEED</small>
+            <strong id="windSpeed">-- km/h</strong>
+          </div>
+
+          <div class="detail">
+            <span class="detail-icon">◌</span>
+            <small>PRECIPITATION</small>
+            <strong id="precipitation">-- mm</strong>
+          </div>
+
+          <div class="detail">
+            <span class="detail-icon">☼</span>
+            <small>UV INDEX</small>
+            <strong id="uvIndex">--</strong>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- FORECAST -->
+    <section class="card forecast-card">
+      <div class="card-heading">
+        <span>7-DAY FORECAST</span>
+        <span>THE WEEK AHEAD</span>
+      </div>
+
+      <div class="forecast-scroll">
+        <div id="forecastContainer"
+             class="forecast-grid">
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <span>
+        KELVIN © <span id="footerYear">2026</span>
+      </span>
+
+      <span>
+        Forecast data by
+        <a href="https://open-meteo.com/"
+           target="_blank"
+           rel="noopener noreferrer">
+          Open-Meteo
+        </a>
+        · No API key needed
+      </span>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
